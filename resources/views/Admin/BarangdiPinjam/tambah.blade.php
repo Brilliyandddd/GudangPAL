@@ -21,10 +21,10 @@
                                 placeholder="">
                         </div>
                         <div class="form-group">
-                            <label for="customer" class="form-label">Pilih Customer <span
+                            <label for="customer" class="form-label">Pilih Peminjam <span
                                     class="text-danger">*</span></label>
                             <select name="customer" id="customer" class="form-control">
-                                <option value="">-- Pilih Customer --</option>
+                                <option value="">-- Pilih Peminjam --</option>
                                 @foreach ($customer as $c)
                                     <option value="{{ $c->customer_id }}">{{ $c->customer_nama }}</option>
                                 @endforeach
