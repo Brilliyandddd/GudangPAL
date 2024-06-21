@@ -9,6 +9,9 @@ use Yajra\DataTables\DataTables;
 use App\Models\Admin\CustomerModel;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangdipinjamModel;
+use App\Models\Admin\BarangkeluarModel;
+use App\Models\Admin\BarangmasukModel;
+use App\Models\Admin\BarangModel;
 use App\Models\Admin\PenanggungJawabModel;
 use App\Models\Admin\RuangModel;
 use Illuminate\Support\Facades\Session;
@@ -141,37 +144,73 @@ class BarangdipinjamController extends Controller
 
     public function proses_tambah(Request $request)
     {
+        // Ambil jumlah stok barang yang ada
+        $barang = BarangModel::where('barang_kode', $request->barang)->first();
 
-        //insert data
-        BarangdipinjamModel::create([
-            'barangdipinjam_tanggal' => $request->tgldipinjam,
-            'barangdipinjam_kode'    => $request->bdpkode,
-            'barang_kode'            => $request->barang,
-            'customer_id'            => $request->customer,
-            'ruang_id'               => $request->ruang,
-            'penanggungjawab_id'     => $request->penanggungjawab,
-            'barangdipinjam_jumlah'  => $request->jml,
-            'barangdipinjam_lama'    => $request->lamadipinjam,
-        ]);
+        if ($barang) {
+            $stokTersedia = $barang->barang_stok;
+            $jumlahDipinjam = $request->jml;
 
-        return response()->json(['success' => 'Berhasil']);
+            // Cek apakah stok mencukupi
+            if ($stokTersedia >= $jumlahDipinjam) {
+                // Update stok
+                $barang->barang_stok = $stokTersedia - $jumlahDipinjam;
+                $barang->save();
+
+                // Insert data
+                BarangdipinjamModel::create([
+                    'barangdipinjam_tanggal' => $request->tgldipinjam,
+                    'barangdipinjam_kode'    => $request->bdpkode,
+                    'barang_kode'            => $request->barang,
+                    'customer_id'            => $request->customer,
+                    'ruang_id'               => $request->ruang,
+                    'penanggungjawab_id'     => $request->penanggungjawab,
+                    'barangdipinjam_jumlah'  => $jumlahDipinjam,
+                    'barangdipinjam_lama'    => $request->lamadipinjam,
+                ]);
+
+                return response()->json(['success' => 'Berhasil']);
+            } else {
+                return response()->json(['error' => 'Stok tidak mencukupi'], 400);
+            }
+        } else {
+            return response()->json(['error' => 'Barang tidak ditemukan'], 404);
+        }
     }
-
 
     public function proses_ubah(Request $request, BarangdipinjamModel $barangdipinjam)
     {
-        //update data
-        $barangdipinjam->update([
-            'barangdipinjam_tanggal' => $request->tgldipinjam,
-            'barang_kode'            => $request->barang,
-            'customer_id'            => $request->customer,
-            'ruang_id'               => $request->ruang,
-            'penanggungjawab_id'     => $request->penanggungjawab,
-            'barangdipinjam_jumlah'  => $request->jml,
-            'barangdipinjam_lama'    => $request->lamadipinjam,
-        ]);
+        // Ambil jumlah stok barang yang ada
+        $barang = BarangModel::where('barang_kode', $request->barang)->first();
 
-        return response()->json(['success' => 'Berhasil']);
+        if ($barang) {
+            $stokTersedia = $barang->barang_stok;
+            $jumlahDipinjam = $request->jml;
+
+            // Cek apakah stok mencukupi
+            if ($stokTersedia >= $jumlahDipinjam) {
+                // Update stok
+                $barang->barang_stok = $stokTersedia - $jumlahDipinjam;
+                $barang->save();
+
+                // Insert data
+                $barangdipinjam->update([
+                    'barangdipinjam_tanggal' => $request->tgldipinjam,
+                    'barang_kode'            => $request->barang,
+                    'customer_id'            => $request->customer,
+                    'ruang_id'               => $request->ruang,
+                    'penanggungjawab_id'     => $request->penanggungjawab,
+                    'barangdipinjam_jumlah'  => $request->jml,
+                    'barangdipinjam_lama'    => $request->lamadipinjam,
+                ]);
+
+                return response()->json(['success' => 'Berhasil']);
+            } else {
+                return response()->json(['error' => 'Stok tidak mencukupi'], 400);
+            }
+        } else {
+            return response()->json(['error' => 'Barang tidak ditemukan'], 404);
+        }
     }
 
     public function proses_hapus(Request $request, BarangdipinjamModel $barangdipinjam)

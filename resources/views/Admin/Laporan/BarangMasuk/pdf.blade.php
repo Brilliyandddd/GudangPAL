@@ -65,7 +65,7 @@ use Carbon\Carbon;
 <body>
 
     <center>
-        <h1 class="font-medium">Laporan Barang Masuk PT PAL Indonesia</h1>
+        <h1 class="font-medium">Laporan Barang Masuk</h1>
         @if($tglawal == '')
         <h4 class="font-medium">Semua Tanggal</h4>
         @else
@@ -81,7 +81,7 @@ use Carbon\Carbon;
                 <th>TGL MASUK</th>
                 <th>KODE BRG MASUK</th>
                 <th>KODE BARANG</th>
-                <th>PENANGGUNG JAWAB</th>
+                <th>CUSTOMER</th>
                 <th>BARANG</th>
                 <th>JML MASUK</th>
             </tr>

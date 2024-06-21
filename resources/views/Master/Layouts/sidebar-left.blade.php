@@ -103,7 +103,7 @@
                  <li class="slide {{$title == 'Menu' || $title == 'Role' || $title == 'User' || $title == 'Akses' || $title == 'Web' ? 'is-expanded' : ''}}">
                      <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
                          <i class="side-menu__icon fe fe-settings"></i>
-                         <span class="side-menu__label">Settings</span><i class="angle fe fe-chevron-right"></i></a>
+                         <span class="side-menu__label">Pengaturan</span><i class="angle fe fe-chevron-right"></i></a>
                      <ul class="slide-menu">
                          @if($getSettingMenu > 0)
                          <li><a href="{{url('/admin/menu')}}" class="slide-item {{$title == 'Menu' ? 'active' : ''}}">Menu</a></li>
@@ -131,7 +131,7 @@
 
 
                  <li class="slide">
-                     <a class="side-menu__item" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalLogout"><i class="side-menu__icon fe fe-log-out"></i><span class="side-menu__label">Log Out</span></a>
+                     <a class="side-menu__item" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalLogout"><i class="side-menu__icon fe fe-log-out"></i><span class="side-menu__label">Keluar</span></a>
                  </li>
 
 

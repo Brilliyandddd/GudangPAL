@@ -8,6 +8,7 @@ use App\Models\Admin\AksesModel;
 use App\Models\Admin\CustomerModel;
 use App\Http\Controllers\Controller;
 use App\Models\Admin\BarangkembaliModel;
+use App\Models\Admin\BarangModel;
 use App\Models\Admin\PenanggungJawabModel;
 use App\Models\Admin\RuangModel;
 use Illuminate\Support\Facades\Session;
@@ -128,8 +129,7 @@ class BarangkembaliController extends Controller
 
     public function proses_tambah(Request $request)
     {
-
-        //insert data
+        // Insert data pada tabel BarangkembaliModel
         BarangkembaliModel::create([
             'barangdipinjam_tanggal'   => $request->tgldipinjam,
             'barangkembali_tanggal'    => $request->tglkembali,
@@ -144,13 +144,31 @@ class BarangkembaliController extends Controller
             'barangkembali_keterangan' => $request->keterangan_pengembalian,
         ]);
 
+        // Ambil data barang berdasarkan barang_kode
+        $barang = BarangModel::where('barang_kode', $request->barang)->first();
+
+        if ($barang) {
+            // Hitung stok baru
+            $stok_sekarang = $barang->barang_stok;
+            $stok_baru = $stok_sekarang + $request->jml_kembali - $request->jml_rusak;
+
+            // Update stok barang
+            $barang->update([
+                'barang_stok' => $stok_baru,
+            ]);
+        }
+
         return response()->json(['success' => 'Berhasil']);
     }
 
-
     public function proses_ubah(Request $request, BarangkembaliModel $barangkembali)
     {
-        //update data
+        // Cek apakah terjadi perubahan pada jumlah barang dipinjam, jumlah barang kembali, atau jumlah barang rusak
+        $isJumlahDipinjamChanged = $barangkembali->barangdipinjam_jumlah != $request->jml_dipinjam;
+        $isJumlahKembaliChanged = $barangkembali->barangkembali_jumlah != $request->jml_kembali;
+        $isJumlahRusakChanged = $barangkembali->barangrusak_jumlah != $request->jml_rusak;
+
+        // Update data barangkembali
         $barangkembali->update([
             'barangdipinjam_tanggal'   => $request->tgldipinjam,
             'barangkembali_tanggal'    => $request->tglkembali,
@@ -163,6 +181,23 @@ class BarangkembaliController extends Controller
             'barang_keterangan'        => $request->keterangan_barang,
             'barangkembali_keterangan' => $request->keterangan_pengembalian
         ]);
+
+        // Jika terjadi perubahan pada jumlah barang dipinjam, jumlah barang kembali, atau jumlah barang rusak
+        if ($isJumlahDipinjamChanged || $isJumlahKembaliChanged || $isJumlahRusakChanged) {
+            // Ambil data barang berdasarkan barang_kode
+            $barang = BarangModel::where('barang_kode', $request->barang)->first();
+
+            if ($barang) {
+                // Hitung stok baru
+                $stok_sekarang = $barang->barang_stok;
+                $stok_baru = $stok_sekarang + $request->jml_kembali - $request->jml_rusak;
+
+                // Update stok barang
+                $barang->update([
+                    'barang_stok' => $stok_baru,
+                ]);
+            }
+        }
 
         return response()->json(['success' => 'Berhasil']);
     }

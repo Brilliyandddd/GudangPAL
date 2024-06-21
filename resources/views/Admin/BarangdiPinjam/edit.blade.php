@@ -250,13 +250,24 @@
                     lamadipinjam: lamadipinjam,
                 },
                 success: function(data) {
+                    if (data.success) {
+                        $('#modaldemo8').modal('toggle');
+                        swal({
+                            title: "Berhasil ditambah!",
+                            type: "success"
+                        });
+                        table.ajax.reload(null, false);
+                        reset();
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var err = JSON.parse(xhr.responseText);
                     swal({
-                        title: "Berhasil diubah!",
-                        type: "success"
+                        title: "Stok barang tidak mencukupi",
+                        text: err.message,
+                        type: "error"
                     });
-                    $('#Umodaldemo8').modal('toggle');
-                    table.ajax.reload(null, false);
-                    resetU();
+                    setLoading(false);
                 }
             });
         }

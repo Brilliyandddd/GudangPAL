@@ -80,7 +80,7 @@ use Carbon\Carbon;
     </center>
 
     <center>
-        <h1 class="font-medium">Laporan Barang Keluar PT PAL Indonesia</h1>
+        <h1 class="font-medium">Laporan Barang Keluar</h1>
         @if($tglawal == '')
         <h4 class="font-medium">Semua Tanggal</h4>
         @else

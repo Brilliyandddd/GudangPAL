@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jun 17, 2024 at 04:10 PM
+-- Generation Time: Jun 20, 2024 at 12:39 PM
 -- Server version: 8.0.30
 -- PHP Version: 8.2.19
 
@@ -68,14 +68,14 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (12, '2022_11_16_120018_create_tbl_appreance', 5),
 (13, '2022_11_25_141731_create_tbl_barang', 6),
 (14, '2022_11_26_011349_create_tbl_customer', 7),
-(16, '2022_11_28_151108_create_tbl_barangmasuk', 8),
 (17, '2022_11_30_115904_create_tbl_barangkeluar', 9),
 (18, '2024_06_14_154339_create_tbl_ruang', 10),
 (19, '2024_06_15_011811_create_tbl_penanggungjawab', 11),
 (20, '2024_06_15_061532_create_tbl_penanggungjawab', 12),
 (21, '2024_06_15_115945_create_tbl_ruang', 13),
 (35, '2024_06_15_135154_create_tbl_barangdipinjam', 14),
-(44, '2024_06_17_062445_create_tbl_barangkembali', 15);
+(44, '2024_06_17_062445_create_tbl_barangkembali', 15),
+(46, '2024_06_20_011554_create_tbl_barangmasuk', 16);
 
 -- --------------------------------------------------------
 
@@ -451,9 +451,8 @@ CREATE TABLE `tbl_barang` (
 --
 
 INSERT INTO `tbl_barang` (`barang_id`, `jenisbarang_id`, `satuan_id`, `merk_id`, `barang_kode`, `barang_nama`, `barang_slug`, `barang_harga`, `barang_stok`, `barang_gambar`, `created_at`, `updated_at`) VALUES
-(5, '12', '7', '2', 'BRG-1669390175622', 'Motherboard', 'motherboard', '4000000', '0', 'image.png', '2022-11-25 07:30:12', '2022-11-25 07:30:12'),
-(6, '13', '1', '7', 'BRG-1669390220236', 'Baut 24mm', 'baut-24mm', '1000000', '0', 'image.png', '2022-11-25 07:30:50', '2022-11-29 06:30:37'),
-(7, '12', '5', '2', 'BRG-1718374041161', 'RAM', 'ram', '500000', '0', 'image.png', '2024-06-14 06:07:53', '2024-06-14 06:07:53');
+(7, '12', '5', '2', 'BRG-1718374041161', 'RAM', 'ram', '500000', '13', 'image.png', '2024-06-14 06:07:53', '2024-06-20 04:16:29'),
+(8, '12', '5', '1', 'BRG-1718679906760', 'VGA', 'vga', '1500000', '15', 'image.png', '2024-06-17 19:05:44', '2024-06-17 23:44:00');
 
 -- --------------------------------------------------------
 
@@ -463,14 +462,14 @@ INSERT INTO `tbl_barang` (`barang_id`, `jenisbarang_id`, `satuan_id`, `merk_id`,
 
 CREATE TABLE `tbl_barangdipinjam` (
   `barangdipinjam_id` int UNSIGNED NOT NULL,
-  `barangdipinjam_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ruang_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `penanggungjawab_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangdipinjam_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangdipinjam_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangdipinjam_lama` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangdipinjam_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruang_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `penanggungjawab_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangdipinjam_tanggal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangdipinjam_jumlah` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangdipinjam_lama` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -480,8 +479,9 @@ CREATE TABLE `tbl_barangdipinjam` (
 --
 
 INSERT INTO `tbl_barangdipinjam` (`barangdipinjam_id`, `barangdipinjam_kode`, `barang_kode`, `customer_id`, `ruang_id`, `penanggungjawab_id`, `barangdipinjam_tanggal`, `barangdipinjam_jumlah`, `barangdipinjam_lama`, `created_at`, `updated_at`) VALUES
-(9, 'BDP-1718616926551', 'BRG-1718374041161', '4', '1', '13', '2024-06-01', '12', '2024-06-24', '2024-06-17 01:35:43', '2024-06-17 01:35:43'),
-(14, 'BDP-1718634868685', 'BRG-1669390175622', '5', '1', '13', '2024-05-30', '2', '2024-06-27', '2024-06-17 06:34:45', '2024-06-17 06:34:45');
+(19, 'BDP-1718693521894', 'BRG-1718374041161', '2', '1', '13', '2024-06-01', '2', '2024-06-25', '2024-06-17 22:52:45', '2024-06-17 22:52:45'),
+(20, 'BDP-1718693797984', 'BRG-1718374041161', '5', '2', '11', '2024-06-10', '3', '2024-06-20', '2024-06-17 22:57:07', '2024-06-17 22:57:07'),
+(21, 'BDP-1718696339386', 'BRG-1718374041161', '4', '1', '13', '2024-06-05', '2', '2024-06-10', '2024-06-17 23:39:24', '2024-06-17 23:42:52');
 
 -- --------------------------------------------------------
 
@@ -516,17 +516,17 @@ INSERT INTO `tbl_barangkeluar` (`bk_id`, `bk_kode`, `barang_kode`, `bk_tanggal`,
 
 CREATE TABLE `tbl_barangkembali` (
   `barangkembali_id` int UNSIGNED NOT NULL,
-  `barangkembali_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `ruang_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangdipinjam_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangdipinjam_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangkembali_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangkembali_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barangrusak_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `barang_keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `barangkembali_keterangan` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `barangkembali_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `customer_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ruang_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangdipinjam_tanggal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangdipinjam_jumlah` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangkembali_tanggal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangkembali_jumlah` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barangrusak_jumlah` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `barang_keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `barangkembali_keterangan` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -536,7 +536,8 @@ CREATE TABLE `tbl_barangkembali` (
 --
 
 INSERT INTO `tbl_barangkembali` (`barangkembali_id`, `barangkembali_kode`, `barang_kode`, `customer_id`, `ruang_id`, `barangdipinjam_tanggal`, `barangdipinjam_jumlah`, `barangkembali_tanggal`, `barangkembali_jumlah`, `barangrusak_jumlah`, `barang_keterangan`, `barangkembali_keterangan`, `created_at`, `updated_at`) VALUES
-(3, 'BKM-1718640446952', 'BRG-1669390175622', '2', '1', '2024-06-01', '4', '2024-06-26', '4', '0', 'Aman', 'Tidak telat', '2024-06-17 08:09:19', '2024-06-17 08:09:19');
+(7, 'BKM-1718693876244', 'BRG-1718374041161', '5', '2', '2024-06-10', '3', '2024-06-20', '3', '1', 'Sebagian Hilang', 'Tidak telat', '2024-06-17 22:58:38', '2024-06-17 22:58:38'),
+(11, 'BKM-1718885758381', 'BRG-1718374041161', '5', '2', '2024-06-20', '3', '2024-06-17', '3', '2', 'Sebagian Hilang', 'Telat', '2024-06-20 04:16:29', '2024-06-20 04:16:29');
 
 -- --------------------------------------------------------
 
@@ -546,11 +547,11 @@ INSERT INTO `tbl_barangkembali` (`barangkembali_id`, `barangkembali_kode`, `bara
 
 CREATE TABLE `tbl_barangmasuk` (
   `bm_id` int UNSIGNED NOT NULL,
-  `bm_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `barang_kode` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `customer_id` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bm_tanggal` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `bm_jumlah` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bm_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `barang_kode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `penanggungjawab_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bm_tanggal` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `bm_jumlah` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -559,9 +560,8 @@ CREATE TABLE `tbl_barangmasuk` (
 -- Dumping data for table `tbl_barangmasuk`
 --
 
-INSERT INTO `tbl_barangmasuk` (`bm_id`, `bm_kode`, `barang_kode`, `customer_id`, `bm_tanggal`, `bm_jumlah`, `created_at`, `updated_at`) VALUES
-(1, 'BM-1669730554623', 'BRG-1669390175622', '5', '2022-11-17', '10', '2022-11-29 06:02:43', '2024-06-16 01:33:51'),
-(8, 'BM-1718499760635', 'BRG-1669390220236', '4', '2024-05-29', '6', '2024-06-15 17:02:55', '2024-06-15 17:16:18');
+INSERT INTO `tbl_barangmasuk` (`bm_id`, `bm_kode`, `barang_kode`, `penanggungjawab_id`, `bm_tanggal`, `bm_jumlah`, `created_at`, `updated_at`) VALUES
+(3, 'BM-1718848576148', 'BRG-1718374041161', '11', '2024-05-31', '11', '2024-06-19 17:56:53', '2024-06-19 17:59:59');
 
 -- --------------------------------------------------------
 
@@ -991,7 +991,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=45;
+  MODIFY `id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -1015,31 +1015,31 @@ ALTER TABLE `tbl_appreance`
 -- AUTO_INCREMENT for table `tbl_barang`
 --
 ALTER TABLE `tbl_barang`
-  MODIFY `barang_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `barang_id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_barangdipinjam`
 --
 ALTER TABLE `tbl_barangdipinjam`
-  MODIFY `barangdipinjam_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `barangdipinjam_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT for table `tbl_barangkeluar`
 --
 ALTER TABLE `tbl_barangkeluar`
-  MODIFY `bk_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `bk_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_barangkembali`
 --
 ALTER TABLE `tbl_barangkembali`
-  MODIFY `barangkembali_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `barangkembali_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tbl_barangmasuk`
 --
 ALTER TABLE `tbl_barangmasuk`
-  MODIFY `bm_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `bm_id` int UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_customer`

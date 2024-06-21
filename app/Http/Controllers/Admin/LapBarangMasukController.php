@@ -21,9 +21,9 @@ class LapBarangMasukController extends Controller
     public function print(Request $request)
     {
         if ($request->tglawal) {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
+            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_penanggungjawab', 'tbl_penanggungjawab.penanggungjawab_id', '=', 'tbl_barangmasuk.penanggungjawab_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
         } else {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->orderBy('bm_id', 'DESC')->get();
+            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_penanggungjawab', 'tbl_penanggungjawab.penanggungjawab_id', '=', 'tbl_barangmasuk.penanggungjawab_id')->orderBy('bm_id', 'DESC')->get();
         }
 
         $data["title"] = "Print Barang Masuk";
@@ -36,9 +36,9 @@ class LapBarangMasukController extends Controller
     public function pdf(Request $request)
     {
         if ($request->tglawal) {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
+            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_penanggungjawab', 'tbl_penanggungjawab.penanggungjawab_id', '=', 'tbl_barangmasuk.penanggungjawab_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
         } else {
-            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->orderBy('bm_id', 'DESC')->get();
+            $data['data'] = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_penanggungjawab', 'tbl_penanggungjawab.penanggungjawab_id', '=', 'tbl_barangmasuk.penanggungjawab_id')->orderBy('bm_id', 'DESC')->get();
         }
 
         $data["title"] = "PDF Barang Masuk";
@@ -59,9 +59,9 @@ class LapBarangMasukController extends Controller
     {
         if ($request->ajax()) {
             if ($request->tglawal == '') {
-                $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->orderBy('bm_id', 'DESC')->get();
+                $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_penanggungjawab', 'tbl_penanggungjawab.penanggungjawab_id', '=', 'tbl_barangmasuk.penanggungjawab_id')->orderBy('bm_id', 'DESC')->get();
             } else {
-                $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_customer', 'tbl_customer.customer_id', '=', 'tbl_barangmasuk.customer_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
+                $data = BarangmasukModel::leftJoin('tbl_barang', 'tbl_barang.barang_kode', '=', 'tbl_barangmasuk.barang_kode')->leftJoin('tbl_penanggungjawab', 'tbl_penanggungjawab.penanggungjawab_id', '=', 'tbl_barangmasuk.penanggungjawab_id')->whereBetween('bm_tanggal', [$request->tglawal, $request->tglakhir])->orderBy('bm_id', 'DESC')->get();
             }
             return DataTables::of($data)
                 ->addIndexColumn()
@@ -70,17 +70,17 @@ class LapBarangMasukController extends Controller
 
                     return $tgl;
                 })
-                ->addColumn('customer', function ($row) {
-                    $customer = $row->customer_id == '' ? '-' : $row->customer_nama;
+                ->addColumn('penanggungjawab', function ($row) {
+                    $penanggungjawab = $row->penanggungjawab_id == '' ? '-' : $row->penanggungjawab_nama;
 
-                    return $customer;
+                    return $penanggungjawab;
                 })
                 ->addColumn('barang', function ($row) {
                     $barang = $row->barang_id == '' ? '-' : $row->barang_nama;
 
                     return $barang;
                 })
-                ->rawColumns(['tgl', 'customer', 'barang'])->make(true);
+                ->rawColumns(['tgl', 'penanggungjawab', 'barang'])->make(true);
         }
     }
 }

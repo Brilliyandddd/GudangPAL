@@ -1,35 +1,37 @@
 @extends('Master.Layouts.app', ['title' => $title])
 
 @section('content')
-<!-- PAGE-HEADER -->
-<div class="page-header">
-    <h1 class="page-title">Barang Masuk</h1>
-    <div>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Transaksi</li>
-            <li class="breadcrumb-item active" aria-current="page">Barang Masuk</li>
-        </ol>
+    <!-- PAGE-HEADER -->
+    <div class="page-header">
+        <h1 class="page-title">Barang Masuk</h1>
+        <div>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item text-gray">Transaksi</li>
+                <li class="breadcrumb-item active" aria-current="page">Barang Masuk</li>
+            </ol>
+        </div>
     </div>
-</div>
-<!-- PAGE-HEADER END -->
+    <!-- PAGE-HEADER END -->
 
 
-<!-- ROW -->
-<div class="row row-sm">
-    <div class="col-lg-12">
-        <div class="card">
-            <div class="card-header justify-content-between">
-                <h3 class="card-title">Data</h3>
-                @if ($hakTambah > 0)
-                <div>
-                    <a class="modal-effect btn btn-primary-light" onclick="generateID()" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data
-                        <i class="fe fe-plus"></i></a>
-                    </div>
+    <!-- ROW -->
+    <div class="row row-sm">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header justify-content-between">
+                    <h3 class="card-title">Data</h3>
+                    @if ($hakTambah > 0)
+                        <div>
+                            <a class="modal-effect btn btn-primary-light" onclick="generateID()"
+                                data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data
+                                <i class="fe fe-plus"></i></a>
+                        </div>
                     @endif
                 </div>
                 <div class="card-body">
                     <div class="table-responsive">
-                        <table id="table-1" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
+                        <table id="table-1"
+                            class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                             <thead>
                                 <th class="border-bottom-0" width="1%">No</th>
                                 <th class="border-bottom-0">Tanggal Masuk</th>
@@ -64,7 +66,7 @@
             $("input[name='idbmU']").val(data.bm_id);
             $("input[name='bmkodeU']").val(data.bm_kode);
             $("input[name='kdbarangU']").val(data.barang_kode);
-            $("select[name='customerU']").val(data.customer_id);
+            $("select[name='penanggungjawabU']").val(data.penanggungjawab_id);
             $("input[name='jmlU']").val(data.bm_jumlah);
 
             getbarangbyidU(data.barang_kode);
@@ -88,9 +90,9 @@
             });
         }
     </script>
-    @endsection
+@endsection
 
-    @section('scripts')
+@section('scripts')
     <script>
         $.ajaxSetup({
             headers: {
@@ -100,7 +102,7 @@
 
         var table;
         $(document).ready(function() {
-        //datatables
+            //datatables
             table = $('#table-1').DataTable({
 
                 "processing": true,
@@ -112,7 +114,7 @@
                 "lengthMenu": [
                     [5, 10, 25, 50, 100],
                     [5, 10, 25, 50, 100]
-                    ],
+                ],
                 "pageLength": 10,
 
                 lengthChange: true,
@@ -122,43 +124,43 @@
                 },
 
                 "columns": [{
-                    data: 'DT_RowIndex',
-                    name: 'DT_RowIndex',
-                    searchable: false
-                },
-                {
-                    data: 'tgl',
-                    name: 'bm_tanggal',
-                },
-                {
-                    data: 'bm_kode',
-                    name: 'bm_kode',
-                },
-                {
-                    data: 'barang_kode',
-                    name: 'barang_kode',
-                },
-                {
-                    data: 'customer',
-                    name: 'customer_nama',
-                },
-                {
-                    data: 'barang',
-                    name: 'barang_nama',
-                },
-                {
-                    data: 'bm_jumlah',
-                    name: 'bm_jumlah',
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                },
+                        data: 'DT_RowIndex',
+                        name: 'DT_RowIndex',
+                        searchable: false
+                    },
+                    {
+                        data: 'tgl',
+                        name: 'bm_tanggal',
+                    },
+                    {
+                        data: 'bm_kode',
+                        name: 'bm_kode',
+                    },
+                    {
+                        data: 'barang_kode',
+                        name: 'barang_kode',
+                    },
+                    {
+                        data: 'penanggungjawab',
+                        name: 'penanggungjawab_nama',
+                    },
+                    {
+                        data: 'barang',
+                        name: 'barang_nama',
+                    },
+                    {
+                        data: 'bm_jumlah',
+                        name: 'bm_jumlah',
+                    },
+                    {
+                        data: 'action',
+                        name: 'action',
+                        orderable: false,
+                        searchable: false
+                    },
                 ],
 
             });
         });
     </script>
-    @endsection
+@endsection
