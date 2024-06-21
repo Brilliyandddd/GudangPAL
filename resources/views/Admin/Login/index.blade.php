@@ -40,7 +40,7 @@
                                     <span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span>
                                     Loading...
                                 </button>
-                                <button type="submit" class="login100-form-btn btn btn-primary" id="btnLogin">Login</button>
+                                <button type="submit" class="login100-form-btn btn btn-primary" id="btnLogin">Masuk</button>
                             </div>
                         </div>
                     </div>
