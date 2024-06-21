@@ -111,7 +111,7 @@ Route::group(['middleware' => 'userlogin'], function () {
         Route::post('/admin/penanggungjawab/proses_hapus/{penanggungjawab}', [PenanggungJawabController::class, 'proses_hapus']);
     });
 
-    Route::middleware(['checkRoleUser:/customer,menu'])->group(function () {
+    Route::middleware(['checkRoleUser:/customer,submenu'])->group(function () {
         // Customer
         Route::resource('/admin/customer', \App\Http\Controllers\Admin\CustomerController::class);
         Route::get('/admin/customer/show/', [CustomerController::class, 'show'])->name('customer.getcustomer');

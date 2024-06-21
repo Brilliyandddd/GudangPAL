@@ -13,8 +13,8 @@ class CustomerController extends Controller
 {
     public function index()
     {
-        $data["title"] = "Customer";
-        $data["hakTambah"] = AksesModel::leftJoin('tbl_menu', 'tbl_menu.menu_id', '=', 'tbl_akses.menu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_menu.menu_judul' => 'Customer', 'tbl_akses.akses_type' => 'create'))->count();
+        $data["title"] = "Peminjam";
+        $data["hakTambah"] = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Peminjam', 'tbl_akses.akses_type' => 'create'))->count();
         return view('Admin.Customer.index', $data);
     }
 
@@ -23,52 +23,52 @@ class CustomerController extends Controller
         if ($request->ajax()) {
             $data = CustomerModel::orderBy('customer_id', 'DESC')->get();
             return DataTables::of($data)
-                ->addIndexColumn()
-                ->addColumn('notelp', function ($row) {
-                    $notelp = $row->customer_notelp == '' ? '-' : $row->customer_notelp;
+            ->addIndexColumn()
+            ->addColumn('notelp', function ($row) {
+                $notelp = $row->customer_notelp == '' ? '-' : $row->customer_notelp;
 
-                    return $notelp;
-                })
-                ->addColumn('alamat', function ($row) {
-                    $alamat = $row->customer_alamat == '' ? '-' : $row->customer_alamat;
+                return $notelp;
+            })
+            ->addColumn('alamat', function ($row) {
+                $alamat = $row->customer_alamat == '' ? '-' : $row->customer_alamat;
 
-                    return $alamat;
-                })
-                ->addColumn('action', function ($row) {
-                    $array = array(
-                        "customer_id" => $row->customer_id,
-                        "customer_nama" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->customer_nama)),
-                        "customer_alamat" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->customer_alamat)),
-                        "customer_notelp" => $row->customer_notelp
-                    );
-                    $button = '';
-                    $hakEdit = AksesModel::leftJoin('tbl_menu', 'tbl_menu.menu_id', '=', 'tbl_akses.menu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_menu.menu_judul' => 'Customer', 'tbl_akses.akses_type' => 'update'))->count();
-                    $hakDelete = AksesModel::leftJoin('tbl_menu', 'tbl_menu.menu_id', '=', 'tbl_akses.menu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_menu.menu_judul' => 'Customer', 'tbl_akses.akses_type' => 'delete'))->count();
-                    if ($hakEdit > 0 && $hakDelete > 0) {
-                        $button .= '
-                        <div class="g-2">
-                        <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
-                        <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
-                        </div>
-                        ';
-                    } else if ($hakEdit > 0 && $hakDelete == 0) {
-                        $button .= '
-                        <div class="g-2">
-                            <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
-                        </div>
-                        ';
-                    } else if ($hakEdit == 0 && $hakDelete > 0) {
-                        $button .= '
-                        <div class="g-2">
-                        <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
-                        </div>
-                        ';
-                    } else {
-                        $button .= '-';
-                    }
-                    return $button;
-                })
-                ->rawColumns(['action', 'notelp', 'alamat'])->make(true);
+                return $alamat;
+            })
+            ->addColumn('action', function ($row) {
+                $array = array(
+                    "customer_id" => $row->customer_id,
+                    "customer_nama" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->customer_nama)),
+                    "customer_alamat" => trim(preg_replace('/[^A-Za-z0-9-]+/', '_', $row->customer_alamat)),
+                    "customer_notelp" => $row->customer_notelp
+                );
+                $button = '';
+                $hakEdit = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Peminjam', 'tbl_akses.akses_type' => 'update'))->count();
+                $hakDelete = AksesModel::leftJoin('tbl_submenu', 'tbl_submenu.submenu_id', '=', 'tbl_akses.submenu_id')->where(array('tbl_akses.role_id' => Session::get('user')->role_id, 'tbl_submenu.submenu_judul' => 'Peminjam', 'tbl_akses.akses_type' => 'delete'))->count();
+                if ($hakEdit > 0 && $hakDelete > 0) {
+                    $button .= '
+                    <div class="g-2">
+                    <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
+                    <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
+                    </div>
+                    ';
+                } else if ($hakEdit > 0 && $hakDelete == 0) {
+                    $button .= '
+                    <div class="g-2">
+                    <a class="btn modal-effect text-primary btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Umodaldemo8" data-bs-toggle="tooltip" data-bs-original-title="Edit" onclick=update(' . json_encode($array) . ')><span class="fe fe-edit text-success fs-14"></span></a>
+                    </div>
+                    ';
+                } else if ($hakEdit == 0 && $hakDelete > 0) {
+                    $button .= '
+                    <div class="g-2">
+                    <a class="btn modal-effect text-danger btn-sm" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#Hmodaldemo8" onclick=hapus(' . json_encode($array) . ')><span class="fe fe-trash-2 fs-14"></span></a>
+                    </div>
+                    ';
+                } else {
+                    $button .= '-';
+                }
+                return $button;
+            })
+            ->rawColumns(['action', 'notelp', 'alamat'])->make(true);
         }
     }
 

@@ -56,7 +56,7 @@ $web = WebModel::first();
 
     <!-- BACKGROUND-IMAGE -->
     <div class="">
-        
+
         <!-- GLOABAL LOADER -->
         <div id="global-loader">
             <img src="{{url('/assets/images/loader.svg')}}" class="loader-img" alt="Loader">
@@ -66,6 +66,7 @@ $web = WebModel::first();
         <!-- PAGE -->
         <div class="page">
             <div class="">
+
                 <!-- CONTAINER OPEN -->
                 @yield('content')
                 <!-- CONTAINER CLOSED -->
