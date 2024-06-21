@@ -106,7 +106,7 @@
                          <span class="side-menu__label">Pengaturan</span><i class="angle fe fe-chevron-right"></i></a>
                      <ul class="slide-menu">
                          @if($getSettingMenu > 0)
-                         <li><a href="{{url('/admin/menu')}}" class="slide-item {{$title == 'Menu' ? 'active' : ''}}">Menu</a></li>
+                         <li><a href="{{url('/admin/menu')}}" class="slide-item {{$title == 'Menu' ? 'active' : ''}}">eyuvbueyveyu</a></li>
                          @endif
                          <li class="sub-slide {{$title == 'Role' || $title == 'User' || $title == 'Akses' ? 'is-expanded' : ''}}">
                              <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span class="sub-side-menu__label">User</span><i class="sub-angle fe fe-chevron-right"></i></a>
