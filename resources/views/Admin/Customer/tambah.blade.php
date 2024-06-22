@@ -16,7 +16,7 @@
                     <input type="text" name="notelp" class="form-control" placeholder="">
                 </div>
                 <div class="form-group">
-                    <label for="alamat" class="form-label">Alamat</label>
+                    <label for="alamat" class="form-label">Divisi</label>
                     <textarea name="alamat" class="form-control" rows="4"></textarea>
                 </div>
             </div>
