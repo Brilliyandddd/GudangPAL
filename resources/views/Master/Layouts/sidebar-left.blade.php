@@ -109,13 +109,13 @@
                          <li><a href="{{url('/admin/menu')}}" class="slide-item {{$title == 'Menu' ? 'active' : ''}}">Menu</a></li>
                          @endif
                          <li class="sub-slide {{$title == 'Role' || $title == 'User' || $title == 'Akses' ? 'is-expanded' : ''}}">
-                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span class="sub-side-menu__label">User</span><i class="sub-angle fe fe-chevron-right"></i></a>
+                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span class="sub-side-menu__label">Pengguna</span><i class="sub-angle fe fe-chevron-right"></i></a>
                              <ul class="sub-slide-menu">
                                  @if($getSettingRole > 0)
-                                 <li><a class="sub-slide-item {{$title == 'Role' ? 'active' : ''}}" href="{{url('/admin/role')}}">Role</a></li>
+                                 <li><a class="sub-slide-item {{$title == 'Role' ? 'active' : ''}}" href="{{url('/admin/role')}}">Peran</a></li>
                                  @endif
                                  @if($getSettingUser > 0)
-                                 <li><a class="sub-slide-item {{$title == 'User' ? 'active' : ''}}" href="{{url('/admin/user')}}">List</a></li>
+                                 <li><a class="sub-slide-item {{$title == 'User' ? 'active' : ''}}" href="{{url('/admin/user')}}">Daftar Peran</a></li>
                                  @endif
                                  @if($getSettingAkses > 0)
                                  <li><a class="sub-slide-item {{$title == 'Akses' ? 'active' : ''}}" href="{{url('/admin/akses/role')}}">Akses</a></li>
