@@ -10,7 +10,7 @@
                 @method('PUT')
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="uicon" class="form-label">Icon</label>
+                        <label for="uicon" class="form-label">Simbol</label>
                         <span class="text-gray d-block mb-1">Cari & salin nama dari Icon <a target="_blank" href="https://feathericons.com/">https://feathericons.com/</a></span></span>
                         <div class="input-group">
                             <span class="input-group-text bg-gray-light" id="basic-addon1">fe-</span>
@@ -22,7 +22,7 @@
                         <input type="text" id="ujudul" name="ujudul" class="form-control" placeholder="Judul Menu">
                     </div>
                     <div class="form-group">
-                        <label for="type" class="form-label">Type</label>
+                        <label for="type" class="form-label">Tipe</label>
                         <select name="utype" class="form-control" onchange="setTypeU()">
                             <option value="">-- Pilih --</option>
                             <option value="1">Menu</option>
@@ -30,7 +30,7 @@
                         </select>
                     </div>
                     <div class="form-group d-none" id="vTypeMenuU">
-                        <label for="Uredirect" class="form-label">Redirect</label>
+                        <label for="Uredirect" class="form-label">Pengalihan</label>
                         <input type="text" id="uredirect" name="uredirect" class="form-control" placeholder="/redirect">
                     </div>
                     <div class="form-group d-none" id="vTypeSubU">

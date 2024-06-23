@@ -19,7 +19,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="card-title">List Role</h3>
+                <h3 class="card-title">Daftar Peran</h3>
                 <div>
                     <a class="modal-effect btn btn-primary-light" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
                 </div>
@@ -29,9 +29,9 @@
                     <table id="table-1" width="100%" class="table table-bordered text-nowrap border-bottom dataTable no-footer dtr-inline collapsed">
                         <thead>
                             <th class="border-bottom-0" width="1%">No</th>
-                            <th class="border-bottom-0">Title</th>
+                            <th class="border-bottom-0">Judul</th>
                             <th class="border-bottom-0">Slug</th>
-                            <th class="border-bottom-0">Description</th>
+                            <th class="border-bottom-0">Deskripsi</th>
                             <th class="border-bottom-0" width="1%">Action</th>
                         </thead>
                         <tbody></tbody>
