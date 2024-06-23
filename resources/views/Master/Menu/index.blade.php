@@ -11,7 +11,7 @@ use App\Models\Admin\SubmenuModel;
     <h1 class="page-title">Menu</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Settings</li>
+            <li class="breadcrumb-item text-gray">Pengaturan</li>
             <li class="breadcrumb-item active" aria-current="page">Menu</li>
         </ol>
     </div>

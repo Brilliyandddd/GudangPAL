@@ -3,12 +3,12 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Role</h1>
+    <h1 class="page-title">Peran</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Settings</li>
-            <li class="breadcrumb-item text-gray">User</li>
-            <li class="breadcrumb-item active" aria-current="page">Role</li>
+            <li class="breadcrumb-item text-gray">Pengaturan</li>
+            <li class="breadcrumb-item text-gray">Pengguna</li>
+            <li class="breadcrumb-item active" aria-current="page">Peran</li>
         </ol>
     </div>
 </div>

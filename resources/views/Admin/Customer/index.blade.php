@@ -3,11 +3,11 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Customer</h1>
+    <h1 class="page-title">Peminjam</h1>
     <div>
         <ol class="breadcrumb">
             <li class="breadcrumb-item text-gray">Admin</li>
-            <li class="breadcrumb-item active" aria-current="page">Customer</li>
+            <li class="breadcrumb-item active" aria-current="page">Peminjam</li>
         </ol>
     </div>
 </div>
