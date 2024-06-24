@@ -36,7 +36,7 @@
                         <th class="border-bottom-0" width="1%">No</th>
                         <th class="border-bottom-0">Peminjam</th>
                         <th class="border-bottom-0">No Telp</th>
-                        <th class="border-bottom-0">Alamat</th>
+                        <th class="border-bottom-0">Divisi</th>
                         <th class="border-bottom-0" width="1%">Action</th>
                     </thead>
                     <tbody></tbody>

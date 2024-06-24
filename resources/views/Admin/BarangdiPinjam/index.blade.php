@@ -38,7 +38,7 @@
                                 <th class="border-bottom-0">Kode Barang</th>
                                 <th class="border-bottom-0">Peminjam</th>
                                 <th class="border-bottom-0">Nomor Telepon</th>
-                                <th class="border-bottom-0">Alamat</th>
+                                <th class="border-bottom-0">Divisi</th>
                                 <th class="border-bottom-0">Ruang</th>
                                 <th class="border-bottom-0">Penanggungjawab</th>
                                 <th class="border-bottom-0">Barang</th>
