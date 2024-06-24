@@ -3,12 +3,12 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">User</h1>
+    <h1 class="page-title">Pengguna</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Settings</li>
-            <li class="breadcrumb-item text-gray">User</li>
-            <li class="breadcrumb-item active" aria-current="page">List</li>
+            <li class="breadcrumb-item text-gray">Pengaturan</li>
+            <li class="breadcrumb-item text-gray">Pengguna</li>
+            <li class="breadcrumb-item active" aria-current="page">Daftar</li>
         </ol>
     </div>
 </div>
@@ -19,7 +19,7 @@
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="card-title">List User</h3>
+                <h3 class="card-title">Daftar Pengguna</h3>
                 <div>
                     <a class="modal-effect btn btn-primary-light" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
                 </div>
@@ -31,9 +31,9 @@
                             <th class="border-bottom-0" width="1%">No</th>
                             <th class="border-bottom-0">Foto</th>
                             <th class="border-bottom-0">Nama Lengkap</th>
-                            <th class="border-bottom-0">Username</th>
+                            <th class="border-bottom-0">Nama User</th>
                             <th class="border-bottom-0">Email</th>
-                            <th class="border-bottom-0">Role</th>
+                            <th class="border-bottom-0">Peran</th>
                             <th class="border-bottom-0" width="1%">Action</th>
                         </thead>
                         <tbody></tbody>

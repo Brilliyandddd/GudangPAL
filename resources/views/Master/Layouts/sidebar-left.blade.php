@@ -89,7 +89,7 @@
                  @endforeach
 
                  <li class="sub-category">
-                     <h3>Other</h3>
+                     <h3>Lainnya</h3>
                  </li>
 
                  <?php $getSetting = AksesModel::where(array('role_id' => Session::get('user')->role_id, 'othermenu_id' => 1, 'akses_type' => 'view'))->count(); ?>
@@ -103,19 +103,19 @@
                  <li class="slide {{$title == 'Menu' || $title == 'Role' || $title == 'User' || $title == 'Akses' || $title == 'Web' ? 'is-expanded' : ''}}">
                      <a class="side-menu__item" data-bs-toggle="slide" href="javascript:void(0)">
                          <i class="side-menu__icon fe fe-settings"></i>
-                         <span class="side-menu__label">Settings</span><i class="angle fe fe-chevron-right"></i></a>
+                         <span class="side-menu__label">Pengaturan</span><i class="angle fe fe-chevron-right"></i></a>
                      <ul class="slide-menu">
                          @if($getSettingMenu > 0)
                          <li><a href="{{url('/admin/menu')}}" class="slide-item {{$title == 'Menu' ? 'active' : ''}}">Menu</a></li>
                          @endif
                          <li class="sub-slide {{$title == 'Role' || $title == 'User' || $title == 'Akses' ? 'is-expanded' : ''}}">
-                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span class="sub-side-menu__label">User</span><i class="sub-angle fe fe-chevron-right"></i></a>
+                             <a class="sub-side-menu__item" data-bs-toggle="sub-slide" href="javascript:void(0)"><span class="sub-side-menu__label">Pengguna</span><i class="sub-angle fe fe-chevron-right"></i></a>
                              <ul class="sub-slide-menu">
                                  @if($getSettingRole > 0)
-                                 <li><a class="sub-slide-item {{$title == 'Role' ? 'active' : ''}}" href="{{url('/admin/role')}}">Role</a></li>
+                                 <li><a class="sub-slide-item {{$title == 'Role' ? 'active' : ''}}" href="{{url('/admin/role')}}">Peran</a></li>
                                  @endif
                                  @if($getSettingUser > 0)
-                                 <li><a class="sub-slide-item {{$title == 'User' ? 'active' : ''}}" href="{{url('/admin/user')}}">List</a></li>
+                                 <li><a class="sub-slide-item {{$title == 'User' ? 'active' : ''}}" href="{{url('/admin/user')}}">Daftar Peran</a></li>
                                  @endif
                                  @if($getSettingAkses > 0)
                                  <li><a class="sub-slide-item {{$title == 'Akses' ? 'active' : ''}}" href="{{url('/admin/akses/role')}}">Akses</a></li>
@@ -131,7 +131,7 @@
 
 
                  <li class="slide">
-                     <a class="side-menu__item" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalLogout"><i class="side-menu__icon fe fe-log-out"></i><span class="side-menu__label">Log Out</span></a>
+                     <a class="side-menu__item" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalLogout"><i class="side-menu__icon fe fe-log-out"></i><span class="side-menu__label">Keluar</span></a>
                  </li>
 
 

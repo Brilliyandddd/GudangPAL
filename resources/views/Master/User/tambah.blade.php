@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Tambah User</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">Tambah Pengguna</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form method="POST" action="{{ route('user.store') }}" name="myForm" enctype="multipart/form-data" onsubmit="return validateForm()">
                 @csrf
@@ -15,7 +15,7 @@
                                 <input type="text" name="nmlengkap" class="form-control" placeholder="Nama Lengkap..">
                             </div>
                             <div class="form-group">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" class="form-label">Nama Pengguna</label>
                                 <input type="text" name="username" class="form-control" placeholder="Username..">
                             </div>
                             <div class="form-group">
@@ -23,7 +23,7 @@
                                 <input type="email" name="email" class="form-control" placeholder="Email@mail.com..">
                             </div>
                             <div class="form-group">
-                                <label for="role" class="form-label">Role</label>
+                                <label for="role" class="form-label">Peran</label>
                                 <select name="role" class="form-control">
                                     <option value="">-- Pilih --</option>
                                     @foreach($role as $r)
@@ -32,11 +32,11 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="pwd" class="form-label">Password</label>
+                                <label for="pwd" class="form-label">Kata Sandi</label>
                                 <input type="password" name="pwd" class="form-control" placeholder="Password..">
                             </div>
                             <div class="form-group">
-                                <label for="pwdU" class="form-label">Ulangi Password</label>
+                                <label for="pwdU" class="form-label">Ulangi Kata Sandi</label>
                                 <input type="password" name="pwdU" class="form-control" placeholder="Password..">
                             </div>
                         </div>

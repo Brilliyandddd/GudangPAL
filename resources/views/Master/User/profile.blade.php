@@ -3,11 +3,11 @@
 @section('content')
 <!-- PAGE-HEADER -->
 <div class="page-header">
-    <h1 class="page-title">Profile</h1>
+    <h1 class="page-title">Profil</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">User</li>
-            <li class="breadcrumb-item active" aria-current="page">Profile</li>
+            <li class="breadcrumb-item text-gray">Pengguna</li>
+            <li class="breadcrumb-item active" aria-current="page">Profil</li>
         </ol>
     </div>
 </div>
@@ -17,7 +17,7 @@
     <div class="col-xl-4">
         <div class="card">
             <div class="card-header">
-                <div class="card-title">Edit Password</div>
+                <div class="card-title">Edit Kata Sandi</div>
             </div>
             <form action="{{url('/admin/updatePassword').'/'.$data->user_id}}" method="POST" name="myFormP" enctype="multipart/form-data" onsubmit="return validatePassword()">
                 @csrf
@@ -45,7 +45,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Password Baru</label>
+                        <label class="form-label">Kata Sandi Baru</label>
                         <div class="wrap-input100 validate-input input-group" id="Password-toggle1">
                             <a href="javascript:void(0)" tabindex="-1" class="input-group-text bg-white text-muted">
                                 <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
@@ -54,7 +54,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="form-label">Konfirmasi Password</label>
+                        <label class="form-label">Konfirmasi Kata Sandi</label>
                         <div class="wrap-input100 validate-input input-group" id="Password-toggle2">
                             <a href="javascript:void(0)" tabindex="-1" class="input-group-text bg-white text-muted">
                                 <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
@@ -73,7 +73,7 @@
     <div class="col-xl-8">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title">Edit Profile</h3>
+                <h3 class="card-title">Edit Profil</h3>
             </div>
             <form action="{{url('/admin/updateProfile').'/'.$data->user_id}}" method="POST" name="myFormUpdate" enctype="multipart/form-data" onsubmit="return validateUpdate()">
                 @csrf
@@ -83,7 +83,7 @@
                         <input type="text" name="nmlengkap" value="{{$data->user_nmlengkap}}" class="form-control" id="nmlengkap" placeholder="Nama Lengkap">
                     </div>
                     <div class="form-group">
-                        <label for="username">Nama User</label>
+                        <label for="username">Nama Pengguna</label>
                         <input type="text" name="username" value="{{$data->user_nama}}" class="form-control" id="username" placeholder="Nama User">
                     </div>
                     <div class="form-group">

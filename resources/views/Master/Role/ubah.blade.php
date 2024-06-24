@@ -3,18 +3,18 @@
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content modal-content-demo">
             <div class="modal-header">
-                <h6 class="modal-title">Ubah Role</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title">Ubah Peran</h6><button aria-label="Close" class="btn-close" data-bs-dismiss="modal"><span aria-hidden="true">&times;</span></button>
             </div>
             <form method="POST" name="myFormU" id="myFormU" enctype="multipart/form-data" onsubmit="return validateFormUpdate()">
                 @csrf
                 @method('PUT')
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="utitle" class="form-label">Title</label>
+                        <label for="utitle" class="form-label">Judul</label>
                         <input type="text" id="utitle" name="utitle" class="form-control" placeholder="Title Role">
                     </div>
                     <div class="form-group">
-                        <label for="udesc" class="form-label">Description</label>
+                        <label for="udesc" class="form-label">Deskripsi</label>
                         <textarea name="udesc" id="udesc" rows="4" class="form-control" placeholder="Deskipsi.."></textarea>
                     </div>
                 </div>
