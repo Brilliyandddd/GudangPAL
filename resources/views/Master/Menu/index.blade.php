@@ -11,7 +11,7 @@ use App\Models\Admin\SubmenuModel;
     <h1 class="page-title">Menu</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Settings</li>
+            <li class="breadcrumb-item text-gray">Pengaturan</li>
             <li class="breadcrumb-item active" aria-current="page">Menu</li>
         </ol>
     </div>
@@ -23,7 +23,7 @@ use App\Models\Admin\SubmenuModel;
     <div class="col-lg-12">
         <div class="card">
             <div class="card-header justify-content-between">
-                <h3 class="card-title">List Menu</h3>
+                <h3 class="card-title">Daftar Menu</h3>
                 <div>
                     <a class="modal-effect btn btn-primary-light" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modaldemo8">Tambah Data <i class="fe fe-plus"></i></a>
                 </div>
@@ -33,11 +33,11 @@ use App\Models\Admin\SubmenuModel;
                     <table class="table border text-nowrap text-md-nowrap table-bordered mb-0">
                         <thead>
                             <tr>
-                                <th class="border-bottom-0" width="1%">Sort</th>
-                                <th class="border-bottom-0" width="1%">Icon</th>
+                                <th class="border-bottom-0" width="1%">Menyortir</th>
+                                <th class="border-bottom-0" width="1%">Simbol</th>
                                 <th class="border-bottom-0">Judul</th>
-                                <th class="border-bottom-0">Type</th>
-                                <th class="border-bottom-0">Redirect</th>
+                                <th class="border-bottom-0">Tipe</th>
+                                <th class="border-bottom-0">Pengalihan</th>
                                 <th class="border-bottom-0" width="1%">Action</th>
                             </tr>
                         </thead>

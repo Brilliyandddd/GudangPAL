@@ -125,13 +125,13 @@
                                     </div> -->
                                     <!-- <div class="dropdown-divider m-0"></div> -->
                                     <a class="dropdown-item" href="{{url('/admin/profile')}}/{{Session::get('user')->user_id}}">
-                                        <i class="dropdown-icon fe fe-user"></i> Profile
+                                        <i class="dropdown-icon fe fe-user"></i> Profil
                                     </a>
                                     <a class="dropdown-item" href="{{url('/admin/appreance')}}">
                                         <i class="dropdown-icon fe fe-layout"></i> Tampilan / Tema
                                     </a>
                                     <a class="dropdown-item" data-bs-effect="effect-super-scaled" data-bs-toggle="modal" href="#modalLogout">
-                                        <i class="dropdown-icon fe fe-log-out"></i> Log out
+                                        <i class="dropdown-icon fe fe-log-out"></i> Keluar
                                     </a>
                                 </div>
                             </div>

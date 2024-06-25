@@ -9,7 +9,7 @@
                 @csrf
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="judul" class="form-label">Icon</label>
+                        <label for="judul" class="form-label">Simbol</label>
                         <span class="text-gray d-block mb-1">Cari & salin nama dari Icon <a target="_blank" href="https://feathericons.com/">https://feathericons.com/</a></span></span>
                         <div class="input-group">
                             <span class="input-group-text bg-gray-light" id="basic-addon1">fe-</span>
@@ -21,7 +21,7 @@
                         <input type="text" id="judul" name="judul" class="form-control" placeholder="Judul Menu">
                     </div>
                     <div class="form-group">
-                        <label for="type" class="form-label">Type</label>
+                        <label for="type" class="form-label">Tipe</label>
                         <select name="type" class="form-control" onchange="setType()">
                             <option value="">-- Pilih --</option>
                             <option value="1">Menu</option>
@@ -29,7 +29,7 @@
                         </select>
                     </div>
                     <div class="form-group d-none" id="vTypeMenu">
-                        <label for="redirect" class="form-label">Redirect</label>
+                        <label for="redirect" class="form-label">Pengalihan</label>
                         <input type="text" id="redirect" name="redirect" class="form-control" placeholder="/redirect">
                     </div>
                     <div class="form-group d-none" id="vTypeSub">

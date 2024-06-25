@@ -24,13 +24,13 @@
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-account text-muted ms-1" aria-hidden="true"></i>
                                 </a>
-                                <input name="user" value="{{Session::get('userInput')}}" class="input100 border-start-0 form-control ms-0" type="text" placeholder="Username" autocomplete="off">
+                                <input name="user" value="{{Session::get('userInput')}}" class="input100 border-start-0 form-control ms-0" type="text" placeholder="Nama Pengguna" autocomplete="off">
                             </div>
                             <div class="wrap-input100 validate-input input-group" id="Password-toggle">
                                 <a tabindex="-1" href="javascript:void(0)" class="input-group-text bg-white text-muted">
                                     <i class="zmdi zmdi-eye text-muted" aria-hidden="true"></i>
                                 </a>
-                                <input name="pwd" class="input100 border-start-0 form-control ms-0" type="password" placeholder="Password" autocomplete="off">
+                                <input name="pwd" class="input100 border-start-0 form-control ms-0" type="password" placeholder="Kata Sandi" autocomplete="off">
                             </div>
                             <!-- <div class="text-end pt-4">
                                 <p class="mb-0"><a href="forgot-password.html" class="text-primary ms-1">Forgot Password?</a></p>
@@ -62,11 +62,11 @@
         setLoading(true);
 
         if (usr == "") {
-            validasi('Username masih kosong!', 'warning');
+            validasi('Nama Pengguna masih kosong!', 'warning');
             setLoading(false);
             return false;
         } else if (pwd == '') {
-            validasi('Password masih kosong!', 'warning');
+            validasi('Kata Sandi masih kosong!', 'warning');
             setLoading(false);
             return false;
         }

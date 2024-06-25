@@ -10,7 +10,7 @@ use App\Models\Admin\SubmenuModel; ?>
     <h1 class="page-title">Akses</h1>
     <div>
         <ol class="breadcrumb">
-            <li class="breadcrumb-item text-gray">Settings</li>
+            <li class="breadcrumb-item text-gray">Pengaturan</li>
             <li class="breadcrumb-item active" aria-current="page">Akses</li>
         </ol>
     </div>
@@ -26,16 +26,16 @@ use App\Models\Admin\SubmenuModel; ?>
                 <div class="row">
                     <div class="col-md-5">
                         <div class="form-group">
-                            <h4 class="text-gray">Role</h4>
+                            <h4 class="text-gray">Peran</h4>
                             <div class="d-flex">
                                 <select name="role" class="form-control">
-                                    <option value="">-- Pilih Role --</option>
+                                    <option value="">-- Pilih Peran --</option>
                                     @foreach($role as $r)
                                     <option value="{{$r->role_id}}" {{$roleid == $r->role_id ? 'selected' : ''}}>{{$r->role_title}}</option>
                                     @endforeach
                                 </select>
                                 <div class="ms-1">
-                                    <button type="submit" onclick="submitRole()" class="btn btn-primary">Submit</button>
+                                    <button type="submit" onclick="submitRole()" class="btn btn-primary">Kirim</button>
                                 </div>
                             </div>
                         </div>
