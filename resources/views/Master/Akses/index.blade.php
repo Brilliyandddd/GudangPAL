@@ -343,7 +343,7 @@ use App\Models\Admin\SubmenuModel; ?>
                                         Menu
                                     </span>
                                 </td>
-                                <td>
+                                <td>    
                                     @if($getView2 != '')
                                     <?php
                                     $getView21 = AksesModel::where(array('othermenu_id' => 2, 'role_id' => $roleid, 'akses_type' => 'view'))->first();
